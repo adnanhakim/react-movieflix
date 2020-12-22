@@ -56,9 +56,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
                   <img
                      key={movie.id}
                      onClick={() => handleClick(movie)}
-                     className={`row-poster ${
-                        isLargeRow && 'row-poster-large'
-                     }`}
+                     className={isLargeRow ? 'row-poster-large' : 'row-poster'}
                      src={`${imageUrl}${
                         isLargeRow ? movie.poster_path : movie.backdrop_path
                      }`}
