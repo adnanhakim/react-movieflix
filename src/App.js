@@ -14,6 +14,16 @@ function App() {
             fetchUrl={requests.fetchNetflixOriginals}
             isLargeRow
          />
+         <Row
+            title="Amazon Prime Originals"
+            fetchUrl={requests.fetchPrimeOriginals}
+            isLargeRow
+         />
+         <Row
+            title="Disney+ Hotstar Originals"
+            fetchUrl={requests.fetchHotstarOriginals}
+            isLargeRow
+         />
          <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
          <Row title="Top Rated" fetchUrl={requests.fetchTopRated} />
          <Row title="Action Movies" fetchUrl={requests.fetchActionMovies} />
