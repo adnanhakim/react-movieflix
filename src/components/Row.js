@@ -42,7 +42,13 @@ function Row({ title, fetchUrl, isLargeRow }) {
 
    return (
       <div className="row">
-         <h2 className="row-title">{title}</h2>
+         <h2
+            style={{
+               color: isLargeRow ? '#db202c' : '#ffffff',
+            }}
+            className="row-title">
+            {title}
+         </h2>
 
          <div className="row-posters">
             {movies.map((movie) =>

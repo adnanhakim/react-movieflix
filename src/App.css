@@ -8,3 +8,14 @@
 body {
    background-color: #111111;
 }
+
+::-moz-selection {
+   /* Code for Firefox */
+   color: #db202c;
+   background: #111111;
+}
+
+::selection {
+   color: #db202c;
+   background: #111111;
+}
