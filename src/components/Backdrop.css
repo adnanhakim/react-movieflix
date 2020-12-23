@@ -1,6 +1,8 @@
 .backdrop {
    color: white;
    object-fit: contain;
-   height: 500px;
+   height: 100vh;
    position: relative;
+   display: flex;
+   align-items: center;
 }

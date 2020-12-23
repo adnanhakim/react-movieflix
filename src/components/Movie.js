@@ -44,19 +44,30 @@ function Movie() {
 
    return (
       <div>
-         <Backdrop url={movie?.backdrop_path} />
-         <header className="movie-header">
-            <img
-               className="movie-poster"
-               src={imageUrl + movie?.poster_path}
-               alt="Poster"
-            />
-            <div className="movie-header-info">
-               <h1 className="movie-name">{movie?.title}</h1>
-               <h2 className="movie-tagline">
-                  {getReleaseDate(movie?.release_date)} &#8226; {movie?.tagline}
-               </h2>
-            </div>
+         <header
+            className="backdrop"
+            style={{
+               backgroundSize: 'cover',
+               backgroundImage: `url(${imageUrl}${movie.backdrop_path})`,
+               backgroundPosition: 'center center',
+            }}>
+            <header className="movie-header">
+               {/* <img
+                  className="movie-poster"
+                  src={imageUrl + movie?.poster_path}
+                  alt="Poster"
+               /> */}
+               <div className="movie-header-info">
+                  <h1 className="movie-name">{movie?.title}</h1>
+                  <h2 className="movie-tagline">
+                     {getReleaseDate(movie?.release_date)} &#8226;{' '}
+                     {movie?.tagline}
+                  </h2>
+                  <p className="movie-header-overview">{movie.overview}</p>
+               </div>
+            </header>
+
+            <div className="banner-fade-bottom"></div>
          </header>
          <div className="movie-overview-container">
             <div className="movie-title">Overview</div>
