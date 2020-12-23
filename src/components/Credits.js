@@ -3,7 +3,7 @@ import './Credits.css';
 import axios from '../axios';
 import Credit from './Credit';
 
-function Credits({ id }) {
+function Credits({ id, getDirector }) {
    const [creditsLeft, setCreditsLeft] = useState([]);
    const [creditsRight, setCreditsRight] = useState([]);
 
@@ -21,9 +21,18 @@ function Credits({ id }) {
          for (let i = 3; i < 6 && i < request.data?.cast?.length; i++)
             castRight.push(request.data.cast[i]);
          setCreditsRight(castRight);
+
+         let director = '';
+         for (let i = 0; i < request.data?.crew.length; i++)
+            if (request.data.crew[i].job === 'Director') {
+               director = request.data.crew[i].name;
+               break;
+            }
+
+         getDirector(director);
       }
       fetchCredits(id);
-   }, [id]);
+   }, [id, getDirector]);
 
    return (
       <div className="credits">

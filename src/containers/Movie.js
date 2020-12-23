@@ -6,11 +6,13 @@ import axios from '../axios';
 import Backdrop from '../components/Backdrop';
 import Credits from '../components/Credits';
 import Videos from '../components/Videos';
+import MoreDetails from '../components/MoreDetails';
 
 function Movie() {
    const history = useHistory();
    const { id } = useParams();
    const [movie, setMovie] = useState({});
+   const [director, setDirector] = useState('');
 
    useEffect(() => {
       async function fetchMovie(id) {
@@ -27,6 +29,10 @@ function Movie() {
       fetchMovie(id);
    }, [id, history]);
 
+   function getDirector(director) {
+      setDirector(director);
+   }
+
    return (
       <div>
          <Backdrop
@@ -36,7 +42,8 @@ function Movie() {
             tagline={movie?.tagline}
             overview={movie?.overview}
          />
-         <Credits id={id} />
+         <Credits id={id} getDirector={getDirector} />
+         <MoreDetails movie={movie} director={director} />
          <Videos id={id} />
       </div>
    );
