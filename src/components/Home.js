@@ -1,14 +1,12 @@
 import React from 'react';
 import './Home.css';
 import Banner from './Banner';
-import Navbar from './Navbar';
 import Row from './Row';
 import requests from '../requests';
 
 function Home() {
    return (
       <>
-         <Navbar />
          <Banner />
          <Row
             title="Netflix Originals"
