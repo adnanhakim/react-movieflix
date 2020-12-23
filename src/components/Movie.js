@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
 import axios from '../axios';
 import Backdrop from './Backdrop';
+import Credits from './Credits';
+const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Movie() {
    const history = useHistory();
@@ -25,10 +27,32 @@ function Movie() {
       fetchMovie(id);
    }, [id, history]);
 
+   function getReleaseDate(release_date) {
+      if (release_date) return release_date.substr(0, 4);
+      else return '';
+   }
+
    return (
       <div>
-         <Backdrop url={movie.backdrop_path} />
-         <h1>{movie.title}</h1>
+         <Backdrop url={movie?.backdrop_path} />
+         <header className="movie-header">
+            <img
+               className="movie-poster"
+               src={imageUrl + movie?.poster_path}
+               alt="Poster"
+            />
+            <div className="movie-header-info">
+               <h1 className="movie-name">{movie?.title}</h1>
+               <h2 className="movie-tagline">
+                  {getReleaseDate(movie?.release_date)} &#8226; {movie?.tagline}
+               </h2>
+            </div>
+         </header>
+         <div className="movie-overview-container">
+            <div className="movie-title">Overview</div>
+            <p className="movie-overview">{movie.overview}</p>
+         </div>
+         <Credits id={id} />
       </div>
    );
 }

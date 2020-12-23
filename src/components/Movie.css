@@ -1,0 +1,48 @@
+.movie-header {
+   display: flex;
+   margin-bottom: 50px;
+}
+
+.movie-poster {
+   margin-top: -150px;
+   margin-left: 50px;
+   z-index: 20;
+   height: 400px;
+   object-fit: cover;
+}
+
+.movie-name {
+   margin-top: 80px;
+   margin-left: 50px;
+   margin-bottom: 20px;
+   letter-spacing: 0.1rem;
+   text-transform: uppercase;
+   font-size: 3rem;
+   font-weight: 800;
+}
+
+.movie-tagline {
+   margin-left: 50px;
+   letter-spacing: 0.1rem;
+   text-transform: uppercase;
+   font-size: 1.5rem;
+   font-weight: 400;
+}
+
+.movie-title {
+   color: #db202c;
+   margin-left: 50px;
+   margin-bottom: 20px;
+   text-transform: uppercase;
+   font-size: 1.2rem;
+   font-weight: 800;
+   letter-spacing: 0.1rem;
+}
+
+.movie-overview-container {
+   margin-bottom: 50px;
+}
+
+.movie-overview {
+   margin: 0px 50px;
+}

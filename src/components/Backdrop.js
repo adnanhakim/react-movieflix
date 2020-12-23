@@ -4,7 +4,7 @@ const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Backdrop({ url }) {
    return (
-      <header
+      <div
          className="backdrop"
          style={{
             backgroundSize: 'cover',
@@ -12,7 +12,7 @@ function Backdrop({ url }) {
             backgroundPosition: 'center center',
          }}>
          <div className="banner-fade-bottom"></div>
-      </header>
+      </div>
    );
 }
 

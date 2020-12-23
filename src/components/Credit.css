@@ -1,0 +1,25 @@
+.credit {
+   display: flex;
+   gap: 30px;
+   align-items: center;
+   margin-bottom: 30px;
+}
+
+.credit-image {
+   width: 100px;
+   height: 100px;
+   object-fit: cover;
+   border: 3px solid white;
+   border-radius: 50%;
+}
+
+.credit-character {
+   font-size: 1.1rem;
+   font-weight: 400;
+}
+
+.credit-name {
+   font-size: 1.5rem;
+   text-transform: uppercase;
+   font-weight: 800;
+}
