@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './Row.css';
 import axios from '../axios';
 import Detail from './Detail';
-const imageUrl = 'https://image.tmdb.org/t/p/original';
+import requests from '../requests';
 
-function Row({ title, fetchUrl, isLargeRow, mediaType }) {
+function Row({ title, fetchUrl, mediaType }) {
    const [movies, setMovies] = useState([]);
    const [id, setId] = useState('');
 
@@ -25,13 +25,7 @@ function Row({ title, fetchUrl, isLargeRow, mediaType }) {
 
    return (
       <div className="row">
-         <h2
-            style={{
-               color: isLargeRow ? '#db202c' : '#ffffff',
-            }}
-            className="row-title">
-            {title}
-         </h2>
+         <h2 className="row-title title">{title}</h2>
 
          <div className="row-posters">
             {movies.map((movie) =>
@@ -39,10 +33,8 @@ function Row({ title, fetchUrl, isLargeRow, mediaType }) {
                   <img
                      key={movie.id}
                      onClick={() => handleClick(movie)}
-                     className={isLargeRow ? 'row-poster-large' : 'row-poster'}
-                     src={`${imageUrl}${
-                        isLargeRow ? movie.poster_path : movie.backdrop_path
-                     }`}
+                     className="row-poster"
+                     src={`${requests.imageUrl}${movie.poster_path}`}
                      alt={movie?.title || movie?.name || movie?.original_name}
                      title={movie?.title || movie?.name || movie?.original_name}
                   />

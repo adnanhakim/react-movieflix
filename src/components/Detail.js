@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Detail.css';
 import axios from '../axios';
 import { Link } from 'react-router-dom';
-const imageUrl = 'https://image.tmdb.org/t/p/original';
+import requests from '../requests';
 
 function Detail({ id, mediaType }) {
    const [movie, setMovie] = useState({});
@@ -21,16 +21,16 @@ function Detail({ id, mediaType }) {
    function getGenres(genres) {
       if (!genres) return '';
       let genre = '';
-      for (let i = 0; i < genres.length - 1; i++) {
+      for (let i = 0; i < genres.length - 1; i++)
          genre += genres[i]?.name + ', ';
-      }
       genre += genres[genres.length - 1]?.name;
       return genre;
    }
 
    function getReleaseDate(movie, mediaType) {
+      if (!movie) return '';
       if (mediaType === 'movie') {
-         return movie?.release_date?.substr(0, 4);
+         return movie.release_date?.substr(0, 4);
       } else {
          const firstAirDate = movie.first_air_date?.substr(0, 4);
          const lastAirDate = movie.last_air_date?.substr(0, 4);
@@ -41,7 +41,7 @@ function Detail({ id, mediaType }) {
    }
 
    function getRuntime(runtime) {
-      if (runtime === 0) return '';
+      if (!runtime || runtime === 0) return '';
       else if (runtime < 60) {
          return `${runtime}m`;
       } else {
@@ -52,38 +52,29 @@ function Detail({ id, mediaType }) {
    return (
       <div className="detail">
          <div className="detail-contents">
-            <h1 className="detail-title">
+            <h1 className="detail-title title">
                {movie.title || movie.name || movie.original_name}
             </h1>
-            <p className="detail-info">
-               <span className="detail-release">
-                  {getReleaseDate(movie, mediaType)}
-               </span>{' '}
-               &#8226;{' '}
+            <p className="detail-info bold">
+               {getReleaseDate(movie, mediaType)} &#8226;{' '}
                <span
                   className={`detail-votes ${
                      movie.vote_average <= 10 &&
                      movie.vote_average >= 7.5 &&
-                     'detail-hit'
+                     'hit'
                   } ${
                      movie.vote_average < 7.5 &&
                      movie.vote_average >= 4 &&
-                     'detail-average'
+                     'average'
                   } ${
-                     movie.vote_average < 4 &&
-                     movie.vote_average >= 0 &&
-                     'detail-flop'
+                     movie.vote_average < 4 && movie.vote_average >= 0 && 'flop'
                   }`}>
                   {movie.vote_average * 10}%
                </span>{' '}
                &#8226;{' '}
-               <span className="detail-release">
-                  {getRuntime(
-                     movie.runtime || movie.episode_run_time?.[0] || 0
-                  )}
-               </span>
+               {getRuntime(movie?.runtime || movie?.episode_run_time?.[0] || 0)}
             </p>
-            <p className="detail-tagline">{movie.tagline}</p>
+            <p className="detail-tagline bold">{movie.tagline}</p>
             <p className="detail-overview">{movie.overview}</p>
             <p className="detail-genres">
                <span className="bold">Genres: </span>
@@ -91,33 +82,32 @@ function Detail({ id, mediaType }) {
             </p>
             <div className="detail-buttons">
                <Link to={`/${mediaType}/${id}`}>
-                  <button className="detail-button link">More Info</button>
+                  <button className="detail-button button">More Info</button>
                </Link>
                {mediaType === 'movie' && (
                   <a
                      href={`https://www.imdb.com/title/${movie.imdb_id}/`}
                      target="_blank"
                      rel="noreferrer">
-                     <button className="detail-button imdb-button">
+                     <button className="button detail-button imdb-button">
                         View on IMDb
                      </button>
                   </a>
                )}
                {mediaType === 'tv' && (
                   <a href={movie.homepage} target="_blank" rel="noreferrer">
-                     <button className="detail-button imdb-button">
+                     <button className="button detail-button imdb-button">
                         View Home
                      </button>
                   </a>
                )}
             </div>
-            {/* <p className="detail-starring">Starring: ABC</p> */}
          </div>
          <div className="detail-fade"></div>
          <div className="detail-poster-container">
             <img
                className="detail-poster"
-               src={`${imageUrl}${movie.backdrop_path}`}
+               src={`${requests.imageUrl}${movie.backdrop_path}`}
                alt={movie.title || movie.name || movie.original_name}
                title={movie.title || movie.name || movie.original_name}
             />

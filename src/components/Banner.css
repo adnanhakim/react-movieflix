@@ -1,5 +1,4 @@
 .banner {
-   color: white;
    object-fit: contain;
    height: 468px;
    position: relative;
@@ -16,10 +15,6 @@
 
 .banner-title {
    z-index: 10;
-   letter-spacing: 0.1rem;
-   text-transform: uppercase;
-   font-size: 2rem;
-   font-weight: 800;
    padding-top: 118px;
    padding-bottom: 1.5rem;
 }
@@ -27,7 +22,6 @@
 .banner-description {
    z-index: 10;
    width: 45rem;
-   line-height: 1.3;
    padding-top: 1rem;
    font-size: 0.875rem;
    max-width: 360px;
@@ -35,33 +29,22 @@
 }
 
 .banner-button {
-   z-index: 10;
-   cursor: pointer;
-   outline: none;
-   border: none;
-   font-weight: 700;
-   border-radius: 0.2vw;
-   padding: 0rem 2rem;
    margin-right: 1rem;
-   padding-top: 0.5rem;
-   padding-bottom: 0.5rem;
 }
 
 .play-button {
+   color: var(--text);
    z-index: 100;
-   color: white;
-   background-color: #db202c;
+   background-color: var(--accent);
 }
 
-.play-button:hover {
-   background-color: rgba(51, 51, 51, 0.5);
+.banner-button:hover {
+   background-color: var(--button-background);
    transition: all 0.2s;
 }
 
 .banner-button:hover {
-   color: white;
-   background-color: rgba(51, 51, 51, 0.5);
-   transition: all 0.2s;
+   color: var(--text);
 }
 
 .banner-fade-bottom {

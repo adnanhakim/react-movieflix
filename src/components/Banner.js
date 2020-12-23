@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Banner.css';
 import requests from '../requests';
 import axios from '../axios';
-const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Banner() {
    const [movie, setMovie] = useState({});
@@ -28,20 +27,22 @@ function Banner() {
          className="banner"
          style={{
             backgroundSize: 'cover',
-            backgroundImage: `url(${imageUrl}${movie?.backdrop_path})`,
+            backgroundImage: `url(${requests.imageUrl}${movie?.backdrop_path})`,
             backgroundPosition: 'center center',
          }}>
          <div className="banner-contents">
-            <h1 className="banner-title">
+            <h1 className="banner-title title">
                {movie?.title || movie?.name || movie?.original_name}
             </h1>
 
             <div className="banner-buttons">
-               <button className="banner-button play-button">Play</button>
-               <button className="banner-button">More Info</button>
+               <button className="banner-button play-button button">
+                  Play
+               </button>
+               <button className="banner-button button">More Info</button>
             </div>
 
-            <p className="banner-description">
+            <p className="banner-description description">
                {truncate(movie?.overview, 200)}
             </p>
          </div>

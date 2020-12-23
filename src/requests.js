@@ -1,6 +1,7 @@
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 const requests = {
+   imageUrl: 'https://image.tmdb.org/t/p/original',
    fetchNetflixOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
    fetchPrimeOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=1024&with_original_language=hi`,
    fetchHotstarOriginals: `/discover/tv?api_key=${API_KEY}&with_networks=3919&with_original_language=hi`,

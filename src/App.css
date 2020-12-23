@@ -6,8 +6,17 @@
 }
 
 body {
-   color: white;
-   background-color: #111111;
+   --background: #111111;
+   --text: #ffffff;
+   --black: #000000;
+   --light-text: #9b9b9b;
+   --accent: #db202c;
+   --imdb: #f6c600;
+   --hit: #238724;
+   --average: #ffbe00;
+   --button-background: rgba(51, 51, 51, 0.5);
+   color: var(--text);
+   background-color: var(--background);
 }
 
 .link {
@@ -16,17 +25,45 @@ body {
    font-size: inherit;
 }
 
+.title {
+   letter-spacing: 0.1rem;
+   text-transform: uppercase;
+   font-size: 2rem;
+   font-weight: 800;
+}
+
+.description {
+   line-height: 1.3;
+}
+
+.button {
+   z-index: 10;
+   cursor: pointer;
+   outline: none;
+   border: none;
+   font-weight: 700;
+   border-radius: 0.2vw;
+   padding: 0.5rem 2rem;
+}
+
 .bold {
    font-weight: 800;
 }
 
-::-moz-selection {
-   /* Code for Firefox */
-   color: #db202c;
-   background: #111111;
+::-moz-selection,
+::selection {
+   color: var(--accent);
+   background: var(--background);
 }
 
-::selection {
-   color: #db202c;
-   background: #111111;
+.hit {
+   color: var(--hit) !important;
+}
+
+.average {
+   color: var(--average) !important;
+}
+
+.flop {
+   color: var(--accent) !important;
 }

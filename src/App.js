@@ -1,6 +1,6 @@
 import './App.css';
-import Home from './components/Home';
-import Movie from './components/Movie';
+import Home from './containers/Home';
+import Movie from './containers/Movie';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';

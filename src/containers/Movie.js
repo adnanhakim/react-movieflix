@@ -3,10 +3,9 @@ import './Movie.css';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
 import axios from '../axios';
-import Backdrop from './Backdrop';
-import Credits from './Credits';
-import YouTube from 'react-youtube';
-import Videos from './Videos';
+import Backdrop from '../components/Backdrop';
+import Credits from '../components/Credits';
+import Videos from '../components/Videos';
 const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Movie() {
@@ -33,14 +32,6 @@ function Movie() {
       if (release_date) return release_date.substr(0, 4);
       else return '';
    }
-
-   const opts = {
-      height: '280',
-      width: '500',
-      playerVars: {
-         autoplay: 0,
-      },
-   };
 
    return (
       <div>
@@ -75,7 +66,6 @@ function Movie() {
          </div>
          <Credits id={id} />
          <Videos id={id} />
-         {/* <YouTube videoId="XW2E2Fnh52w" opts={opts} /> */}
       </div>
    );
 }

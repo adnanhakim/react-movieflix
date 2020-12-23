@@ -1,13 +1,11 @@
 .row {
    margin: 10px 0px 20px 10px;
-   color: white;
 }
 
 .row-title {
+   color: var(--accent);
    margin-left: 20px;
-   text-transform: uppercase;
    font-size: 1rem;
-   letter-spacing: 0.1rem;
 }
 
 .row-posters {
@@ -22,20 +20,6 @@
 }
 
 .row-poster {
-   object-fit: cover;
-   width: 300px;
-   height: 200px;
-   margin-right: 20px;
-   transition: transform 450ms;
-   cursor: pointer;
-}
-
-.row-poster:hover {
-   transform: scale(1.08);
-   opacity: 1;
-}
-
-.row-poster-large {
    object-fit: contain;
    width: 100%;
    max-height: 250px;
@@ -44,6 +28,6 @@
    cursor: pointer;
 }
 
-.row-poster-large:hover {
+.row-poster:hover {
    transform: scale(1.09);
 }

@@ -21,7 +21,7 @@ function Navbar() {
       <div className={`nav ${show && 'nav-black'}`}>
          <div className="nav-container">
             <Link to="/" className="link">
-               <img className="nav-logo" src={logo} alt="Netflix Logo" />
+               <img className="nav-logo" src={logo} alt="Movieflix Logo" />
             </Link>
 
             <img
