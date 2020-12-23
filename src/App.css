@@ -9,6 +9,10 @@ body {
    background-color: #111111;
 }
 
+.bold {
+   font-weight: 800;
+}
+
 ::-moz-selection {
    /* Code for Firefox */
    color: #db202c;
