@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import logo from '../logo.png';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
    const [show, setShow] = useState(false);
@@ -19,7 +20,10 @@ function Navbar() {
    return (
       <div className={`nav ${show && 'nav-black'}`}>
          <div className="nav-container">
-            <img className="nav-logo" src={logo} alt="Netflix Logo" />
+            <Link to="/" className="link">
+               <img className="nav-logo" src={logo} alt="Netflix Logo" />
+            </Link>
+
             <img
                className="nav-avatar"
                src="https://i.pinimg.com/originals/0d/dc/ca/0ddccae723d85a703b798a5e682c23c1.png"

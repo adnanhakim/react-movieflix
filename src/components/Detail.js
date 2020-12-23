@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Detail.css';
 import axios from '../axios';
+import { Link } from 'react-router-dom';
 const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Detail({ id, mediaType }) {
@@ -89,7 +90,9 @@ function Detail({ id, mediaType }) {
                {getGenres(movie.genres)}
             </p>
             <div className="detail-buttons">
-               <button className="detail-button">More Info</button>
+               <Link to={`/${mediaType}/${id}`}>
+                  <button className="detail-button link">More Info</button>
+               </Link>
                {mediaType === 'movie' && (
                   <a
                      href={`https://www.imdb.com/title/${movie.imdb_id}/`}

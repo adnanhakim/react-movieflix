@@ -10,6 +10,12 @@ body {
    background-color: #111111;
 }
 
+.link {
+   text-decoration: none;
+   color: inherit;
+   font-size: inherit;
+}
+
 .bold {
    font-weight: 800;
 }

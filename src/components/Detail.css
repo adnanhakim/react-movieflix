@@ -70,6 +70,9 @@
 }
 
 .detail-button {
+   font-size: 0.875rem;
+   background-color: #efefef;
+   color: black;
    z-index: 10;
    cursor: pointer;
    outline: none;
