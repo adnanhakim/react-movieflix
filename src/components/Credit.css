@@ -24,3 +24,19 @@
    text-transform: uppercase;
    font-weight: 800;
 }
+
+@media screen and (max-width: 768px) {
+   .credit-image {
+      width: 80px;
+      height: 80px;
+      border: 2px solid white;
+   }
+
+   .credit-character {
+      font-size: 0.875rem;
+   }
+
+   .credit-name {
+      font-size: 1.1rem;
+   }
+}

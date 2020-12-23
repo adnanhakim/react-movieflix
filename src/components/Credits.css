@@ -13,3 +13,15 @@
    flex: 1;
    margin-right: 50px;
 }
+
+@media screen and (max-width: 768px) {
+   .credits-title {
+      margin: 50px 30px 30px 30px;
+      font-size: 1.3rem;
+   }
+
+   .credits-list {
+      margin: 0px 0px 20px 30px;
+      flex-direction: column;
+   }
+}

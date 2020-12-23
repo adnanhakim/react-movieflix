@@ -15,3 +15,15 @@
 .videos-list::-webkit-scrollbar {
    display: none;
 }
+
+@media screen and (max-width: 768px) {
+   .videos-title {
+      margin: 50px 30px 30px 30px;
+      font-size: 1.3rem;
+   }
+
+   .videos-list {
+      gap: 30px;
+      margin: 0px 30px 20px 30px;
+   }
+}

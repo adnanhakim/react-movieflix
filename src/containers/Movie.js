@@ -6,7 +6,6 @@ import axios from '../axios';
 import Backdrop from '../components/Backdrop';
 import Credits from '../components/Credits';
 import Videos from '../components/Videos';
-const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Movie() {
    const history = useHistory();
