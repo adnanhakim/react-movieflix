@@ -5,6 +5,8 @@ import { useParams } from 'react-router';
 import axios from '../axios';
 import Backdrop from './Backdrop';
 import Credits from './Credits';
+import YouTube from 'react-youtube';
+import Videos from './Videos';
 const imageUrl = 'https://image.tmdb.org/t/p/original';
 
 function Movie() {
@@ -32,6 +34,14 @@ function Movie() {
       else return '';
    }
 
+   const opts = {
+      height: '280',
+      width: '500',
+      playerVars: {
+         autoplay: 0,
+      },
+   };
+
    return (
       <div>
          <Backdrop url={movie?.backdrop_path} />
@@ -53,6 +63,8 @@ function Movie() {
             <p className="movie-overview">{movie.overview}</p>
          </div>
          <Credits id={id} />
+         <Videos id={id} />
+         {/* <YouTube videoId="XW2E2Fnh52w" opts={opts} /> */}
       </div>
    );
 }

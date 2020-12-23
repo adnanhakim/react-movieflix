@@ -1,4 +1,4 @@
-.credits-title {
+.videos-title {
    margin-left: 50px;
    color: #db202c;
    margin-bottom: 30px;
@@ -8,13 +8,14 @@
    letter-spacing: 0.1rem;
 }
 
-.credits-list {
-   margin-left: 50px;
-   margin-bottom: 20px;
+.videos-list {
    display: flex;
+   gap: 50px;
+   margin: 0px 50px 50px 50px;
+   overflow-y: hidden;
+   overflow-x: scroll;
 }
 
-.credits-list > * {
-   flex: 1;
-   margin-right: 50px;
+.videos-list::-webkit-scrollbar {
+   display: none;
 }
