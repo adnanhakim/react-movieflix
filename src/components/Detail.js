@@ -28,17 +28,24 @@ function Detail({ id, mediaType }) {
    }
 
    function getReleaseDate(movie, mediaType) {
-      let info = '';
       if (mediaType === 'movie') {
-         info += movie?.release_date?.substr(0, 4);
+         return movie?.release_date?.substr(0, 4);
       } else {
          const firstAirDate = movie.first_air_date?.substr(0, 4);
          const lastAirDate = movie.last_air_date?.substr(0, 4);
          if (firstAirDate === lastAirDate) {
-            info += firstAirDate;
-         } else info += firstAirDate + ' - ' + lastAirDate;
+            return firstAirDate;
+         } else return firstAirDate + ' - ' + lastAirDate;
       }
-      return info;
+   }
+
+   function getRuntime(runtime) {
+      if (runtime === 0) return '';
+      else if (runtime < 60) {
+         return `${runtime}m`;
+      } else {
+         return `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
+      }
    }
 
    return (
@@ -51,7 +58,7 @@ function Detail({ id, mediaType }) {
                <span className="detail-release">
                   {getReleaseDate(movie, mediaType)}
                </span>{' '}
-               |{' '}
+               &#8226;{' '}
                <span
                   className={`detail-votes ${
                      movie.vote_average <= 10 &&
@@ -68,6 +75,12 @@ function Detail({ id, mediaType }) {
                   }`}>
                   {movie.vote_average * 10}%
                </span>{' '}
+               &#8226;{' '}
+               <span className="detail-release">
+                  {getRuntime(
+                     movie.runtime || movie.episode_run_time?.[0] || 0
+                  )}
+               </span>
             </p>
             <p className="detail-tagline">{movie.tagline}</p>
             <p className="detail-overview">{movie.overview}</p>
@@ -77,9 +90,23 @@ function Detail({ id, mediaType }) {
             </p>
             <div className="detail-buttons">
                <button className="detail-button">More Info</button>
-               <button className="detail-button imdb-button">
-                  View on IMDb
-               </button>
+               {mediaType === 'movie' && (
+                  <a
+                     href={`https://www.imdb.com/title/${movie.imdb_id}/`}
+                     target="_blank"
+                     rel="noreferrer">
+                     <button className="detail-button imdb-button">
+                        View on IMDb
+                     </button>
+                  </a>
+               )}
+               {mediaType === 'tv' && (
+                  <a href={movie.homepage} target="_blank" rel="noreferrer">
+                     <button className="detail-button imdb-button">
+                        View Home
+                     </button>
+                  </a>
+               )}
             </div>
             {/* <p className="detail-starring">Starring: ABC</p> */}
          </div>

@@ -18,7 +18,8 @@ function Row({ title, fetchUrl, isLargeRow, mediaType }) {
    }, [fetchUrl]);
 
    function handleClick(movie) {
-      if (id) setId('');
+      if (id && id !== movie.id) setId(movie.id);
+      else if (id) setId('');
       else setId(movie.id);
    }
 
