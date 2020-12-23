@@ -14,15 +14,12 @@ function Credits({ id }) {
          );
          let castLeft = [],
             castRight = [];
-         for (let i = 0; i < 3 && i < request.data?.cast?.length; i++) {
+         for (let i = 0; i < 3 && i < request.data?.cast?.length; i++)
             castLeft.push(request.data.cast[i]);
-         }
-
-         for (let i = 3; i < 6 && i < request.data?.cast?.length; i++) {
-            castRight.push(request.data.cast[i]);
-         }
-
          setCreditsLeft(castLeft);
+
+         for (let i = 3; i < 6 && i < request.data?.cast?.length; i++)
+            castRight.push(request.data.cast[i]);
          setCreditsRight(castRight);
       }
       fetchCredits(id);
@@ -30,7 +27,7 @@ function Credits({ id }) {
 
    return (
       <div className="credits">
-         <h1 className="credits-title">Starring</h1>
+         <h1 className="credits-title title">Starring</h1>
          <div className="credits-list">
             <div className="credits-list-left">
                {creditsLeft.map((credit) => (

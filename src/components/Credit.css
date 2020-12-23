@@ -14,12 +14,13 @@
 }
 
 .credit-character {
-   font-size: 1.1rem;
-   font-weight: 400;
+   color: var(--light-text);
+   font-size: 1rem;
 }
 
 .credit-name {
-   font-size: 1.5rem;
+   color: var(--text);
+   font-size: 1.3rem;
    text-transform: uppercase;
    font-weight: 800;
 }

@@ -34,7 +34,7 @@ function Videos({ id }) {
 
    return (
       <div className="videos">
-         <h1 className="videos-title">Videos</h1>
+         <h1 className="videos-title title">Videos</h1>
          <div className="videos-list">
             {videos.map((video) => (
                <YouTube videoId={video.key} opts={opts} />
