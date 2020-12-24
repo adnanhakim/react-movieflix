@@ -3,6 +3,7 @@ import Home from './containers/Home';
 import Movie from './containers/Movie';
 import TVSeries from './containers/TVSeries';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -17,6 +18,7 @@ function App() {
                   <Route path="/tv/:id" exact component={TVSeries} />
                   <Route path="/" component={Home} />
                </Switch>
+               <Footer />
             </div>
          </ScrollToTop>
       </Router>

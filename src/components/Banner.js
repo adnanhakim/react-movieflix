@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Banner.css';
 import requests from '../requests';
 import axios from '../axios';
+import { Link } from 'react-router-dom';
 
 function Banner() {
    const [movie, setMovie] = useState({});
@@ -36,10 +37,14 @@ function Banner() {
             </h1>
 
             <div className="banner-buttons">
+               {/* <a href={movie?.homepage} target="_blank" rel="noreferrer"> */}
                <button className="banner-button play-button button">
                   Play
                </button>
-               <button className="banner-button button">More Info</button>
+               {/* </a> */}
+               <Link to={`/tv/${movie.id}`}>
+                  <button className="banner-button button">More Info</button>
+               </Link>
             </div>
 
             <p className="banner-description description">

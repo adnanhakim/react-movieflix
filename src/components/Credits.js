@@ -5,7 +5,6 @@ import Credit from './Credit';
 
 function Credits({ id, mediaType }) {
    const [credits, setCredits] = useState([]);
-   const [creditsRight, setCreditsRight] = useState([]);
 
    useEffect(() => {
       async function fetchCredits(id) {

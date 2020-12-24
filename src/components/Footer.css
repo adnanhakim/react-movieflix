@@ -1,0 +1,28 @@
+.footer {
+   margin: 60px 30px 30px;
+   color: var(--light-text);
+   font-size: 1rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.footer > * {
+   margin-bottom: 10px;
+}
+
+.footer-info > * {
+   margin-bottom: 10px;
+}
+
+.footer-link {
+   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+   .footer {
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+   }
+}
