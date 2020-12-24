@@ -5,13 +5,13 @@
 }
 
 .credits-list {
-   margin: 0px 0px 20px 50px;
-   display: flex;
-}
-
-.credits-list > * {
-   flex: 1;
-   margin-right: 50px;
+   margin: 0px 50px 30px 50px;
+   -webkit-columns: 3 300px;
+   -moz-columns: 3 300px;
+   columns: 3 300px;
+   -webkit-column-gap: 30px;
+   -moz-column-gap: 30px;
+   column-gap: 30px;
 }
 
 @media screen and (max-width: 768px) {

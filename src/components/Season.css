@@ -37,3 +37,30 @@
    margin-top: 20px;
    color: var(--light-text);
 }
+
+@media screen and (max-width: 768px) {
+   .season-card-poster {
+      height: 200px;
+      width: 133px;
+   }
+
+   .season-card-poster > img {
+      height: 200px;
+      width: 133px;
+   }
+
+   .season-card-title {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+   }
+
+   .season-card-overview {
+      font-size: 0.875rem;
+   }
+
+   .season-card-details {
+      font-size: 0.875rem;
+      margin-top: 20px;
+      color: var(--light-text);
+   }
+}

@@ -1,8 +1,10 @@
 .credit {
    display: flex;
-   gap: 30px;
    align-items: center;
    margin-bottom: 30px;
+   -webkit-column-break-inside: avoid;
+   page-break-inside: avoid;
+   break-inside: avoid;
 }
 
 .credit-image {
@@ -15,6 +17,7 @@
 
 .credit-character {
    color: var(--light-text);
+   margin-left: 20px;
    font-size: 1rem;
 }
 

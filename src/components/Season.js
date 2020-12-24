@@ -14,14 +14,14 @@ function Season({ season }) {
          <div className="season-card-info">
             <h1 className="season-card-title title">{season.name}</h1>
             <p className="season-card-overview description">
-               {season.overview}
+               {season.overview ? season.overview : 'Coming Soon!'}
             </p>
             <p className="season-card-details title">
                Season{' '}
                <span className="season-card-seasons">
                   {season.season_number}
                </span>{' '}
-               &#8226;{' '}
+               <br />
                <span className="season-card-episodes">
                   {season.episode_count} episodes
                </span>

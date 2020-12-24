@@ -19,4 +19,8 @@
       margin: 50px 30px 30px 30px;
       font-size: 1.3rem;
    }
+
+   .more-details-container {
+      margin: 0px 30px;
+   }
 }

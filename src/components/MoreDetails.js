@@ -45,6 +45,12 @@ function MoreDetails({ movie, mediaType }) {
             )}
             {mediaType === 'tv' && (
                <MoreDetailsCard
+                  header="Created By"
+                  content={movie?.created_by?.[0].name}
+               />
+            )}
+            {mediaType === 'tv' && (
+               <MoreDetailsCard
                   header={'Seasons'}
                   content={`${movie.number_of_seasons} seasons`}
                />
@@ -54,12 +60,6 @@ function MoreDetails({ movie, mediaType }) {
                <MoreDetailsCard
                   header={'Episodes'}
                   content={`${movie.number_of_episodes} episodes`}
-               />
-            )}
-            {mediaType === 'tv' && (
-               <MoreDetailsCard
-                  header="Created By"
-                  content={movie?.created_by?.[0].name}
                />
             )}
          </div>
