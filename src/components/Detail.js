@@ -3,6 +3,7 @@ import './Detail.css';
 import axios from '../axios';
 import { Link } from 'react-router-dom';
 import requests from '../requests';
+import { getReleaseYear, getRuntime, getGenres } from '../methods';
 
 function Detail({ id, mediaType }) {
    const [movie, setMovie] = useState({});
@@ -18,37 +19,6 @@ function Detail({ id, mediaType }) {
       fetchDetails(id, mediaType);
    }, [id, mediaType]);
 
-   function getGenres(genres) {
-      if (!genres) return '';
-      let genre = '';
-      for (let i = 0; i < genres.length - 1; i++)
-         genre += genres[i]?.name + ', ';
-      genre += genres[genres.length - 1]?.name;
-      return genre;
-   }
-
-   function getReleaseDate(movie, mediaType) {
-      if (!movie) return '';
-      if (mediaType === 'movie') {
-         return movie.release_date?.substr(0, 4);
-      } else {
-         const firstAirDate = movie.first_air_date?.substr(0, 4);
-         const lastAirDate = movie.last_air_date?.substr(0, 4);
-         if (firstAirDate === lastAirDate) {
-            return firstAirDate;
-         } else return firstAirDate + ' - ' + lastAirDate;
-      }
-   }
-
-   function getRuntime(runtime) {
-      if (!runtime || runtime === 0) return '';
-      else if (runtime < 60) {
-         return `${runtime}m`;
-      } else {
-         return `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
-      }
-   }
-
    return (
       <div className="detail">
          <div className="detail-contents">
@@ -56,7 +26,7 @@ function Detail({ id, mediaType }) {
                {movie.title || movie.name || movie.original_name}
             </h1>
             <p className="detail-info bold">
-               {getReleaseDate(movie, mediaType)} &#8226;{' '}
+               {getReleaseYear(movie, mediaType)} &#8226;{' '}
                <span
                   className={`detail-votes ${
                      movie.vote_average <= 10 &&

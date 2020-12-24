@@ -12,6 +12,7 @@ function Credits({ id, getDirector }) {
          const request = await axios.get(
             `/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
          );
+
          let castLeft = [],
             castRight = [];
          for (let i = 0; i < 3 && i < request.data?.cast?.length; i++)
@@ -41,6 +42,7 @@ function Credits({ id, getDirector }) {
             <div className="credits-list-left">
                {creditsLeft.map((credit) => (
                   <Credit
+                     key={credit.id}
                      name={credit.name}
                      url={credit.profile_path}
                      character={credit.character}
@@ -50,6 +52,7 @@ function Credits({ id, getDirector }) {
             <div className="credits-list-right">
                {creditsRight.map((credit) => (
                   <Credit
+                     key={credit.id}
                      name={credit.name}
                      url={credit.profile_path}
                      character={credit.character}
