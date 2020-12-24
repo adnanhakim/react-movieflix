@@ -6,10 +6,28 @@ export function getGenres(genres) {
    return genre;
 }
 
+export function getNetworks(networks) {
+   if (!networks) return '';
+   let network = '';
+   for (let i = 0; i < networks.length - 1; i++)
+      network += networks[i]?.name + ', ';
+   network += networks[networks.length - 1]?.name;
+   return network;
+}
+
 export function getRuntime(runtime) {
    if (!runtime || runtime === 0) return '';
    else if (runtime < 60) return `${runtime}m`;
    else return `${Math.floor(runtime / 60)}h ${runtime % 60}m`;
+}
+
+export function getRuntimes(runtimes) {
+   if (!runtimes || runtimes.length === 0) return '';
+   let runtime = '';
+   for (let i = 0; i < runtimes.length - 1; i++)
+      runtime += getRuntime(runtimes[i]) + ', ';
+   runtime += getRuntime(runtimes[runtimes.length - 1]);
+   return runtime;
 }
 
 export function formatDate(date) {

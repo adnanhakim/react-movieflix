@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import './Movie.css';
+import './TVSeries.css';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router';
 import axios from '../axios';
 import Backdrop from '../components/Backdrop';
 import Credits from '../components/Credits';
-import Videos from '../components/Videos';
 import MoreDetails from '../components/MoreDetails';
 
-function Movie() {
+function TVSeries() {
    const history = useHistory();
    const { id } = useParams();
-   const [movie, setMovie] = useState({});
+   const [series, setSeries] = useState({});
 
    useEffect(() => {
       async function fetchMovie(id) {
          try {
             const request = await axios.get(
-               `/movie/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
+               `/tv/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`
             );
-            setMovie(request.data);
+            setSeries(request.data);
          } catch (error) {
             history.replace('/');
          }
@@ -30,12 +29,11 @@ function Movie() {
 
    return (
       <div>
-         <Backdrop movie={movie} mediaType="movie" />
-         <Credits id={id} mediaType="movie" />
-         <MoreDetails movie={movie} mediaType="movie" />
-         <Videos id={id} />
+         <Backdrop movie={series} mediaType="tv" />
+         <Credits id={id} mediaType="tv" />
+         <MoreDetails movie={series} mediaType="tv" />
       </div>
    );
 }
 
-export default Movie;
+export default TVSeries;
