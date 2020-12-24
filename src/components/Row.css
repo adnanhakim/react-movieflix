@@ -5,7 +5,7 @@
 .row-title {
    color: var(--accent);
    margin-left: 20px;
-   font-size: 1rem;
+   font-size: 1.3rem;
 }
 
 .row-posters {
@@ -30,4 +30,14 @@
 
 .row-poster:hover {
    transform: scale(1.09);
+}
+
+@media screen and (max-width: 768px) {
+   .row-title {
+      font-size: 1rem;
+   }
+
+   .row-poster {
+      max-height: 200px;
+   }
 }
