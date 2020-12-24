@@ -6,6 +6,7 @@ import axios from '../axios';
 import Backdrop from '../components/Backdrop';
 import Credits from '../components/Credits';
 import MoreDetails from '../components/MoreDetails';
+import Seasons from '../components/Seasons';
 
 function TVSeries() {
    const history = useHistory();
@@ -32,6 +33,7 @@ function TVSeries() {
          <Backdrop movie={series} mediaType="tv" />
          <Credits id={id} mediaType="tv" />
          <MoreDetails movie={series} mediaType="tv" />
+         <Seasons seasons={series?.seasons} />
       </div>
    );
 }

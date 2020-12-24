@@ -1,0 +1,15 @@
+.seasons-title {
+   margin: 50px 50px 30px 50px;
+   color: var(--accent);
+   font-size: 1.5rem;
+}
+
+.seasons-list {
+   margin: 0px 50px 20px 50px;
+   -webkit-columns: 2 500px;
+   -moz-columns: 2 500px;
+   columns: 2 500px;
+   -webkit-column-gap: 50px;
+   -moz-column-gap: 50px;
+   column-gap: 50px;
+}

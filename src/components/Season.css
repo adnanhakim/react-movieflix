@@ -1,0 +1,39 @@
+.season-card {
+   margin-bottom: 50px;
+   -webkit-column-break-inside: avoid;
+   page-break-inside: avoid;
+   break-inside: avoid;
+   display: flex;
+   align-items: center;
+}
+
+.season-card-poster {
+   height: 250px;
+   width: 167px;
+}
+
+.season-card-poster > img {
+   height: 250px;
+   width: 167px;
+   object-fit: cover;
+   border-radius: 5px;
+}
+
+.season-card-info {
+   margin-left: 30px;
+}
+
+.season-card-title {
+   font-size: 1.5rem;
+   margin-bottom: 20px;
+}
+
+.season-card-overview {
+   font-size: 1rem;
+}
+
+.season-card-details {
+   font-size: 1rem;
+   margin-top: 20px;
+   color: var(--light-text);
+}
