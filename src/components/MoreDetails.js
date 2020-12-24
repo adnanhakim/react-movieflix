@@ -37,29 +37,32 @@ function MoreDetails({ movie, mediaType }) {
                      : getRuntimes(movie?.episode_run_time)
                }
             />
-         </div>
-         {mediaType === 'tv' ? (
-            <div className="more-details-container">
+            {mediaType === 'tv' && (
                <MoreDetailsCard
                   header="Networks"
                   content={getNetworks(movie?.networks)}
                />
+            )}
+            {mediaType === 'tv' && (
                <MoreDetailsCard
                   header={'Seasons'}
                   content={`${movie.number_of_seasons} seasons`}
                />
+            )}
+
+            {mediaType === 'tv' && (
                <MoreDetailsCard
                   header={'Episodes'}
                   content={`${movie.number_of_episodes} episodes`}
                />
+            )}
+            {mediaType === 'tv' && (
                <MoreDetailsCard
                   header="Created By"
                   content={movie?.created_by?.[0].name}
                />
-            </div>
-         ) : (
-            <></>
-         )}
+            )}
+         </div>
       </div>
    );
 }

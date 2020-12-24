@@ -1,0 +1,28 @@
+.more-details-card {
+   margin-bottom: 30px;
+   -webkit-column-break-inside: avoid;
+   page-break-inside: avoid;
+   break-inside: avoid;
+}
+
+.more-details-card-header {
+   color: var(--light-text);
+   font-size: 1rem;
+   font-weight: 400;
+}
+
+.more-details-card-content {
+   margin: 10px 0px 20px 0px;
+   font-size: 1.2rem;
+   font-weight: 800;
+}
+
+@media screen and (max-width: 768px) {
+   .more-details-card-header {
+      font-size: 0.875rem;
+   }
+
+   .more-details-card-content {
+      font-size: 1.1rem;
+   }
+}
